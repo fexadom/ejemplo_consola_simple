@@ -11,7 +11,7 @@ char **parse_comando(char *linea, char *delim);
 
 int main(int argc, char **argv)
 {
-	char *linea_consola = (char *) calloc(1, MAXLINE);
+	char *linea_consola = (char *) calloc(MAXLINE, sizeof(char));
 	char **argumentos;
 	size_t max = MAXLINE;
 	ssize_t l = 0;
@@ -60,7 +60,7 @@ int main(int argc, char **argv)
 
 /**
  * Función que crea argv separando una cadena de caracteres en
- * "tokens" delimitados por la cadena de caracteres delim.cd r
+ * "tokens" delimitados por la cadena de caracteres delim.
  *
  * @param linea Cadena de caracteres a separar en tokens.
  * @param delim Cadena de caracteres a usar como delimitador.
