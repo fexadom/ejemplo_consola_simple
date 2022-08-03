@@ -23,13 +23,13 @@ int main(int argc, char **argv)
 	l = getline(&linea_consola, &max, stdin); //lee desde consola
 	linea_consola[l-1] = '\0'; //Sobreescribe el salto de línea
 	while(l > 0){
-		argumentos = parse_comando(linea_consola, " ");
-
 		//Detecta "QUIT" y termina
-		if(strcmp(argumentos[0], "QUIT") == 0){
+		if(strcmp(linea_consola, "QUIT") == 0){
 			printf("Bye!\n");
 			break;
 		}
+
+		argumentos = parse_comando(linea_consola, " ");
 
 		if(argumentos){
 			if((pid = fork()) == 0){
@@ -42,7 +42,7 @@ int main(int argc, char **argv)
 			//Espera a que el proceso hijo termine su ejecución
 			waitpid(pid, &status, 0);
 
-			/*Libera argumentos y su contenido
+			/* Libera argumentos y su contenido
 			para evitar fugas de memoria */
 			for(int i = 0; argumentos[i]; i++)
 				free(argumentos[i]);

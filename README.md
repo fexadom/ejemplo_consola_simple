@@ -1,5 +1,5 @@
 # Demostración consola simple
-Código demostrativo de implementación de una consola simple en C usando *fork()* + *exevp()*.
+Código demostrativo de implementación de una consola simple en C usando *fork()* + *execvp()*.
 
 ## Uso del programa
 Compilar con *make* y ejecutar:
